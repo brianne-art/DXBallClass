@@ -6,10 +6,17 @@ public class ball : MonoBehaviour
     Rigidbody2D rb;
     public float speed;
     public Vector2 direction;
+
+    public int brickCount = 0;
+
+    public scoreScript score;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         direction = Vector2.one.normalized; //(1,1)
+
+        score = GameObject.FindGameObjectWithTag("logic").GetComponent<scoreScript>();
 
     }
 
@@ -28,6 +35,9 @@ public class ball : MonoBehaviour
         {
             direction.y = -direction.y;
             Destroy(collison.gameObject);
+            brickCount = brickCount + 1;
+            Debug.Log("Bricks destroyed: " + brickCount);
+            score.addScore(1); // 1 means score happened
         }
 
         else if (collison.gameObject.CompareTag("sidewall"))
@@ -37,6 +47,9 @@ public class ball : MonoBehaviour
             direction.y = -direction.y;
 
         else if (collison.gameObject.CompareTag("bottomwall"))
+            score.addScore(0); // 0 means game over
             Debug.Log("Game over");
+            gameObject.SetActive(false);
+           
     }
 }
