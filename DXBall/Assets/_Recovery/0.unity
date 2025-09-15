@@ -496,7 +496,7 @@ MonoBehaviour:
   scoreText: {fileID: 1105598853}
   winText: {fileID: 1310928689}
   score: 0
-  ball: {fileID: 469735563}
+  ball: {fileID: 0}
 --- !u!1 &443115122
 GameObject:
   m_ObjectHideFlags: 0

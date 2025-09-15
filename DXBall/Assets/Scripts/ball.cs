@@ -47,9 +47,10 @@ public class ball : MonoBehaviour
             direction.y = -direction.y;
 
         else if (collison.gameObject.CompareTag("bottomwall"))
+        {
             score.addScore(0); // 0 means game over
             Debug.Log("Game over");
             gameObject.SetActive(false);
-           
+        }      
     }
 }
