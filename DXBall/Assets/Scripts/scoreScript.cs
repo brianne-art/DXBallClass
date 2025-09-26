@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using TMPro; // Use this if you’re using TextMeshPro
+using UnityEngine.SceneManagement;// 
 
 public class scoreScript : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class scoreScript : MonoBehaviour
             {
                 winText.text = "You Win!!!";
                 ball.SetActive(false);
+                SceneManager.LoadScene("level 2");
             }
        
         }
